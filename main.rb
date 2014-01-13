@@ -14,7 +14,7 @@ def menu message
   puts "#{message}\n\n" unless message.empty?
 
   puts '1 : Register new animal'
-  puts '2 : Register new client'
+  puts '2 : Register new client - adopt'
   puts '3 : Show available animals'
   puts '4 : Show adopted animals'
   puts '5 : Update an animal'
@@ -42,17 +42,27 @@ while choice != 'q'
     message = "Registered new animal: #{new_animal.name} the #{new_animal.species}."
 
 
-  when "2"  # new client - WORKS
+  when "2"  # new client - WORKS, now adding adopt/drop off features
 
-    puts "Register a new client:"
+    puts "Register a new client - to adopt"
     print "Name: "; name = gets.chomp.to_s
     print "Age: "; age = gets.chomp.to_s
     print "Number of children: "; num_of_children = gets.chomp.to_s
     print "Number of pets: "; num_of_pets = gets.chomp.to_s
-
     new_client = Client.new(name: name, age: age, num_of_children: num_of_children, num_of_pets: num_of_pets)
     shelter.clients << new_client   #this creates an array of hashes
-    message = "Registered new client: #{new_client.name}."
+
+    shelter.get_available_animals.each do |animal|
+      puts "#{animal.name}, #{animal.species}, #{animal.age} y.o."
+    end
+    print "Name of animal: "; requested_animal_name = gets.chomp
+    selected_animal = (shelter.animals.select { |animal| animal.name == requested_animal_name}).first
+    selected_animal.owner = new_client
+    
+    message = "Hooray! #{new_client.name} is now the human of #{selected_animal.name}."
+binding.pry
+
+
 
   when "3"  # show available animals - SEMI WORKS, must figure out how to output each line
     available_animals = shelter.get_available_animals()
