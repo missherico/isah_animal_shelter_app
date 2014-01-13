@@ -49,7 +49,7 @@ while choice != 'q'
     print "Age: "; age = gets.chomp.to_s
     print "Number of children: "; num_of_children = gets.chomp.to_s
     print "Number of pets: "; num_of_pets = gets.chomp.to_s
-    new_client = Client.new(name: name, age: age, num_of_children: num_of_children, num_of_pets: num_of_pets)
+    new_client = Client.new(name: name, age: age, num_of_children: num_of_children, num_of_pets: num_of_pets, to_adopt: true)
     shelter.clients << new_client   #this creates an array of hashes
 
     shelter.get_available_animals.each do |animal|
@@ -61,7 +61,6 @@ while choice != 'q'
     
     message = "Hooray! #{new_client.name} is now the human of #{selected_animal.name}."
 binding.pry
-
 
 
   when "3"  # show available animals - SEMI WORKS, must figure out how to output each line
