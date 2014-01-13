@@ -56,9 +56,10 @@ while choice != 'q'
 
   when "3"  # show available animals - SEMI WORKS, must figure out how to output each line
     available_animals = shelter.get_available_animals()
-    message = "Our animals that need homes:\n"
     available_animals.each do |animal|
-      message += "#{animal.name} the #{animal.species}, #{animal.age} years old.\n"
+      a = "#{animal.name} the #{animal.species}, #{animal.age} years old.\n"
+    message += a
+   
     end
 
   # when "4"  # show adopted animals
@@ -67,8 +68,7 @@ while choice != 'q'
 
   when "6"   # list clients - SEMI WORKS, outputs name in an array
     client_list = shelter.clients
-    message = "Our Happi Clients:\n\n"
-        message += "#{client_list.map { |client| p client.name }}"  #spews out client list as large array
+      message += "#{client_list.map { |client| p client.name }}"  #spews out client list as large array
 
   else
       message += "I don't understand ..."
