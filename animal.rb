@@ -1,5 +1,5 @@
 class Animal
-  attr_accessor :shelter, :name, :age, :gender, :species, :toys, :owner
+  attr_accessor :shelter, :name, :age, :gender, :species, :toys, :owner, :dropped_off_by
 
   def initialize(params = {})
     @shelter = shelter
@@ -9,6 +9,7 @@ class Animal
     @species = params[:species]
     @toys = params[:toys]
     @owner = params[:owner]
+    @dropped_off_by = params[:dropped_off_by]
   end
 
   def is_adopted?

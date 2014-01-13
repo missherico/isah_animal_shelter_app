@@ -10,7 +10,7 @@ class Client
 		@num_of_pets = params[:num_of_pets]
 		@to_adopt = params[:to_adopt]
 		@to_drop_off = params[:to_drop_off]
-
+		@drop_off_animal_name = params[:drop_off_animal_name]
 	end
 
     
