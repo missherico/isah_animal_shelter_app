@@ -88,12 +88,16 @@ while choice != 'q'
     available_animals.each do |animal|
       a = "#{animal.name} the #{animal.species}, #{animal.age} years old.\n"
     message += a
-   
     end
+   
 
 
-
-  # when "5"  # show adopted animals
+  when "5"  # show adopted animals
+    adopted_animals = shelter.get_adopted_animals()
+    adopted_animals.each do |animal|
+      a = "#{animal.name} the #{animal.species}, was adopted by #{animal.owner}.\n"
+    message += a
+    end
 
   when "6"   # list clients - SEMI WORKS, outputs name in an array
     client_list = shelter.clients

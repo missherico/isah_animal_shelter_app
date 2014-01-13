@@ -14,4 +14,10 @@ class Shelter
  		end
  	end
 
+  def get_adopted_animals
+    @animals.select do |animal|
+      not animal.is_adopted?
+    end
+  end
+ 
  end
