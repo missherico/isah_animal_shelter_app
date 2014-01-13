@@ -13,11 +13,6 @@ class Client
 
 	end
 
+    
 
-
-
-   	def client_list()
-   		client_list << new_client
-
-   	end
 end

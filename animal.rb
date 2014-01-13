@@ -15,4 +15,6 @@ class Animal
     @owner.nil?
   end
 
+
+
 end

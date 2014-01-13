@@ -8,4 +8,10 @@ class Shelter
 		@clients = clients
 	end
 
+ 	def get_available_animals
+ 		@animals.select do |animal|
+ 			animal.is_adopted?
+ 		end
+ 	end
+
  end
